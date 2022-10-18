@@ -28,13 +28,12 @@ DJANGO_APPS = [
 
 THIRD_PARTY_APPS = [
     'rest_framework',
-    'django_filters',
     'drf_yasg',  # another way to swagger
     'corsheaders',  # Cross Origin
 ]
 
 LOCAL_APPS = [
-
+    'email_replay.apps.EmailReplayConfig',
 ]
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
@@ -93,6 +92,9 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+# Open AI Key
+OPEN_AI_KEY = os.getenv('OPEN_AI_KEY', 'open_ai_key')
 
 # Email
 EMAIL_BACKEND = os.getenv('EMAIL_BACKEND', 'django.core.mail.backends.smtp.EmailBackend')

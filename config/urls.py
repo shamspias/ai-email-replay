@@ -8,6 +8,8 @@ from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
 from rest_framework import permissions
 
+from email_replay.urls import email_replay_router
+
 schema_view = get_schema_view(
     openapi.Info(
         title="API Title",
@@ -22,6 +24,7 @@ schema_view = get_schema_view(
 )
 
 router = DefaultRouter()
+router.registry.extend(email_replay_router.registry)
 
 urlpatterns = [
                   # admin panel
@@ -29,9 +32,6 @@ urlpatterns = [
 
                   # api
                   path('api/v1/', include(router.urls)),
-
-                  # auth
-                  path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
 
                   # swagger docs
                   re_path(r'^swagger(?P<format>\.json|\.yaml)$', schema_view.without_ui(cache_timeout=0),
