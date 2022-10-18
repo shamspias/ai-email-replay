@@ -13,7 +13,7 @@ def generate_email_replay(prompt):
 
     response = openai.Completion.create(
         model="text-davinci-002",
-        prompt="Suggest 4 short email replay from this email context\n[insert] {}\n\n1.".format(prompt),
+        prompt="Suggest 4 short email replay from this email context\n {}\n\n1.".format(prompt),
         temperature=0.7,
         max_tokens=256,
         top_p=1,
@@ -38,7 +38,7 @@ def generate_customer_replay(subject, prompt):
 
     response = openai.Completion.create(
         model="text-davinci-002",
-        prompt="Suggest 4 support answers about {} based on replay from this conversation \n[insert] {}\n\nAgent:\n1.".format(
+        prompt="Give 4 answers suggestions about {}, based on replay from this conversation \n {}\n\nAgent:\n1.\n".format(
             subject, prompt),
         temperature=0.7,
         max_tokens=256,
