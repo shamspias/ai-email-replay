@@ -94,6 +94,9 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+# Open AI Key
+OPEN_AI_KEY = os.getenv('OPEN_AI_KEY', 'open_ai_key')
+
 # Email
 EMAIL_BACKEND = os.getenv('EMAIL_BACKEND', 'django.core.mail.backends.smtp.EmailBackend')
 EMAIL_HOST = os.getenv('EMAIL_HOST', 'localhost')
