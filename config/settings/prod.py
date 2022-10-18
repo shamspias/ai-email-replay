@@ -43,9 +43,3 @@ MEDIA_URL = f'https://s3.amazonaws.com/{AWS_STORAGE_BUCKET_NAME}/'
 AWS_HEADERS = {
     'Cache-Control': 'max-age=86400, s-maxage=86400, must-revalidate',
 }
-
-# Social
-SOCIAL_AUTH_REDIRECT_IS_HTTPS = True
-
-# easy thumbnails lib & S3
-THUMBNAIL_DEFAULT_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'

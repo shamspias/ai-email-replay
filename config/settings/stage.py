@@ -22,5 +22,3 @@ DATABASES = {
 #     }
 # }
 
-# Social
-SOCIAL_AUTH_REDIRECT_IS_HTTPS = True
