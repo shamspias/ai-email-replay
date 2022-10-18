@@ -6,4 +6,4 @@ from .views import (
 )
 
 email_replay_router = DefaultRouter()
-email_replay_router.register('replay', EmailReplayGenViewSet)
+email_replay_router.register('email', EmailReplayGenViewSet)
