@@ -48,8 +48,12 @@ def generate_customer_replay(subject, prompt):
     )
 
     my_text = response['choices'][0]['text'].split("\n")
+
+    new_text = []
+    for i, word in enumerate(my_text):
+        if len(word) > 4:
+            new_text.append(word)
     context = {
-        'data': [word_value[3:] if word_value[0] != " " else word_value[4:] if i != 0 else word_value[1:] for
-                 i, word_value in enumerate(my_text) if word_value != ""]
+        'data': new_text
     }
     return context
