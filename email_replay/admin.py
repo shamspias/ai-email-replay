@@ -1,3 +1,6 @@
 from django.contrib import admin
+from .models import EmailBody, EmailReplay, EmailWithReplays
 
-# Register your models here.
+admin.site.register(EmailBody)
+admin.site.register(EmailReplay)
+admin.site.register(EmailWithReplays)
