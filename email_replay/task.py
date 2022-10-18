@@ -10,7 +10,6 @@ def generate_email_replay(prompt):
     Method to generate email replay from OpenAI using GPT3
     """
     openai.api_key = settings.OPEN_AI_KEY
-    context = {}
 
     response = openai.Completion.create(
         model="text-davinci-002",
