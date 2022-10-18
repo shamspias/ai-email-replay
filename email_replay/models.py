@@ -26,4 +26,7 @@ class EmailWithReplays(models.Model):
     replay = models.ManyToManyField(EmailReplay, related_name="email_replay")
 
     def __str__(self):
-        return "Email with Replay"
+        if self.subject:
+            return self.subject
+        else:
+            return "No Subject"
