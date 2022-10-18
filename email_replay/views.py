@@ -15,13 +15,8 @@ class EmailReplayGenViewSet(mixins.CreateModelMixin, viewsets.GenericViewSet):
 
     def create(self, request, *args, **kwargs):
         data = request.data
-        print(data)
         my_string = ""
         for i in data['body']:
             my_string += i['actor'] + ":\n" + i['body'] + "\n"
         context = generate_customer_replay(data['subject'], my_string)
-        # serializer = self.get_serializer(data=request.data)
-        # serializer.is_valid(raise_exception=True)
-        # self.perform_create(serializer)
-        # headers = self.get_success_headers(serializer.data)
         return Response(context, status=status.HTTP_201_CREATED, )
