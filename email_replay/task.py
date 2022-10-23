@@ -38,21 +38,24 @@ def generate_customer_replay(subject, prompt):
 
     response = openai.Completion.create(
         model="text-davinci-002",
-        prompt="Give 4 answers suggestions about {}, based on replay from this conversation \n {}\n\nAgent:\n1.\n".format(
-            subject, prompt),
+        prompt="Make 4 email replay suggestions based on email conversation bellow \n {}\n where subject is: {}\n-".format(
+            prompt, subject),
         temperature=0.7,
         max_tokens=256,
         top_p=1,
         frequency_penalty=0,
         presence_penalty=0
     )
-
     my_text = response['choices'][0]['text'].split("\n")
 
     new_text = []
+
     for i, word in enumerate(my_text):
         if len(word) > 4:
-            new_text.append(word)
+            if word[0] == '-':
+                new_text.append(word[1:])
+            else:
+                new_text.append(word)
     context = {
         'data': new_text
     }
