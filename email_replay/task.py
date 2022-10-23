@@ -59,5 +59,4 @@ def generate_customer_replay(subject, prompt):
     context = {
         'data': new_text
     }
-    print(context)
     return context
