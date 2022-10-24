@@ -7,5 +7,5 @@ class EmailReplayConfig(AppConfig):
 
     def ready(self):
         # Import celery app now that Django is mostly ready.
-        # This initializes Celery and autodiscovers tasks
+        # This initializes Celery and auto discovers tasks
         import config.celery
